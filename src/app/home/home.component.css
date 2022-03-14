@@ -1,0 +1,15 @@
+a {
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 2px solid  rgb(170, 235, 247);
+    font-weight: 1000;
+    background-color: white;
+    color: rgb(33, 216, 248);
+    border-radius: 12px;
+    margin: 10px;
+    }
+  a:hover,
+  a:active {
+    background-color:  #36b9ff;
+    color: white;
+  }

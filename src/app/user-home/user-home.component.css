@@ -1,0 +1,31 @@
+.container-fluid{
+    text-align: center;
+    background-color:white;
+    width: 1000px;
+    height: 525px;
+    margin-left: 10%;
+    margin-bottom: 0%;
+    opacity: 95%;
+}
+
+
+.main-div {
+    color: white;
+    font-style: italic;
+}
+.pageBody button {
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #439ee9;
+    background-color: #a6a8bf;
+    color: white;
+    width: 500px;
+    border-radius: 12px;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    }
+  .pageBody button:hover,
+  .pageBody button:active {
+    background-color: rgb(104, 241, 104);
+    border-color: #51e943;
+  }

@@ -1,0 +1,33 @@
+<div className="main-div" style="background-image: url('https://cdn.cms-twdigitalassets.com/content/dam/help-twitter/logos/htc-summary-card.jpg.twimg.768.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;position: relative; min-height: 608px;">
+    <app-navigation-bar [Name]="tabLabel"></app-navigation-bar>
+    <div class="container" style="background-color: #30a2f1; width: 900px;">
+        <h1 style="text-align: center;color: white;">View All Tweets</h1>
+        <br><br>
+        <mat-card style="background-color: #6c757d;">
+            <div class="row">
+              <div class="col-6" style="text-align: center;">
+                 <h1>Profile Picture</h1>    
+              </div>
+              <div class="col-6" style="text-align: center;">
+              <h1>User Name</h1>
+               </div>
+            </div>
+          </mat-card>
+          <br><br>
+        <div *ngFor="let user of allUsers" >
+            <mat-card style="background-color: #6c757d;">
+              <div class="row">
+                <div class="col-6"  style="text-align: center;">
+                    <img style="border-radius: 50%;height: 100px;width: 100px;" src="{{user.ProfilePicture}}"  aria-hidden="true" data-noaft="" alt=""Red dot>
+                </div>
+                <div class="col-6"  style="text-align: center;">
+                <h1>{{user.UserName}}</h1>
+                 </div>
+              </div>
+            </mat-card>
+            <br><br>
+           </div>
+         </div>
+    
+    <br><br><br>
+</div>

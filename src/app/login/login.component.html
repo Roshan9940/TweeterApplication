@@ -1,0 +1,26 @@
+<body>
+    <div class="loginForm">
+        <br>
+        <h2> LOGIN </h2>
+        <br>
+         <form style="margin-left: 120px;" #loginForm="ngForm" (ngSubmit)= "onSubmit(loginForm)">
+            <div class="form-group ">
+                <label class="control-label ">Email Id:</label>
+                <input class="form-control" #emailId="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailId" ngModel required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Password:</label>
+                <input class="form-control" type="password" name="password" ngModel/>
+            </div>
+            
+            <p style="margin-left: 4rem;">Forgot Password? <a routerLink="/forgotPassword">ClickHere</a></p>
+
+            <div class="form-group">
+            <button style="margin-left: 45px;" type="submit" class="btn btn-lg btn-success" [disabled]="!emailId.valid"> Login </button>
+            <button style="margin-left: 45px;" class="btn btn-lg btn-danger" routerLink="">Cancel</button>
+           </div>
+           </form>
+
+    </div>    
+</body>
+      

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark ">
+    <div class="container">
+      <ul class="navbar-nav ml-auto" style="font-size: 50px;">
+        <li class="nav-item" [ngStyle]="{ 'font-weight': Name=='Home' ? '900' : 'null'}" >
+          <a class=HomeClass routerLink="/userHome">Home</a>
+        </li>
+        <li class="nav-item" [ngStyle]="{ 'font-weight': Name=='PostATweet' ? '900' : 'null' }">
+          <a routerLink="/postMyTweet">Post A Tweet</a>
+        </li>
+        <li class="nav-item" [ngStyle]="{ 'font-weight': Name=='ViewAllTweets' ? '900' : 'null' }">
+          <a routerLink="/viewAllTweets">View All Tweets</a>
+        </li>
+        <li class="nav-item" [ngStyle]="{ 'font-weight': Name=='ViewAllUsers' ? '900' : 'null' }">
+            <a routerLink="/viewAllUsers">View All Users</a>
+        </li>
+        <li class="nav-item" [ngStyle]="{ 'font-weight': Name=='EditDetails' ? '900' : 'null' }">
+            <a routerLink="/editDetails">Edit My Details</a>
+        </li>
+        <li>
+        <button class="btn btn-danger" (click)="handleLogout()">Logout</button>
+        </li>
+        <li>
+            <a>
+             <img style="border-radius: 50%;height: 40px;width: 40px;" src="{{image}}"  aria-hidden="true" data-noaft="" alt=""Red dot>
+            </a>  
+        </li>
+      </ul>
+      
+    </div>
+  </nav>

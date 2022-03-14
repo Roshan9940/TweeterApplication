@@ -1,0 +1,39 @@
+<div className="main-div" style="background-image: url('https://cdn.cms-twdigitalassets.com/content/dam/help-twitter/logos/htc-summary-card.jpg.twimg.768.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;position: relative; min-height: 608px;">
+    <app-navigation-bar [Name]="tabName"></app-navigation-bar>
+    <div class="container" style="background-color: #30a2f1; width: 900px;">
+      <h1 style="text-align: center;color: white;">View All Tweets</h1>
+      <br><br>
+      <mat-card style="background-color: #6c757d;">
+          <div class="row">
+            <div class="col-4" style="text-align: center;">
+               <h1>Profile Picture</h1>    
+            </div>
+            <div class="col-8" style="text-align: center;">
+            <h1>Tweet</h1>
+             </div>
+          </div>
+        </mat-card>
+        <br>
+      <div *ngFor="let tweet of allTweets" >
+          <mat-card style="background-color: #6c757d;">
+            <div class="row">
+              <div class="col-4"  style="text-align: center;">
+                  <img style="border-radius: 50%;height: 100px;width: 100px;" src="{{tweet.ProfilePicture}}"  aria-hidden="true" data-noaft="" alt=""Red dot>
+              </div>
+              <div class="col-8"  style="text-align: center;">
+                  <h1>{{tweet.Tweet}}</h1>
+                  <p>Tweeted By <b>{{tweet.UserName}}</b></p>
+                  <button class="btn btn-primary"  style="width: 100px;" (click)="onLike(tweet.TweetId,tweet.TweetLikes)" [disabled]="tweet.UserName==userName"><i class="fa fa-thumbs-up"></i> Like {{tweet.TweetLikes}}</button>
+                  <button class="btn btn-warning" (click)="onReplies(tweet.TweetId)"
+                  style="margin-left: 30px;width: 80px;">Replies</button>
+                  <button class="btn btn-success" (click)="onReply(tweet.TweetId)" [disabled]="tweet.UserName==userName"
+                  style="margin-left: 30px;width: 80px;">Reply</button>
+               </div>
+            </div>
+          </mat-card>
+          <br>
+         </div>
+       </div>
+  
+  <br><br><br>
+  </div>

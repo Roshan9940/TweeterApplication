@@ -1,0 +1,78 @@
+<body>
+  <div class="new-register" >
+        <h2>Registration Form</h2>
+        <p style="text-align:center">If you Already have an Account <a routerLink="/login">Login</a></p>
+        <form style="margin-left: 120px;" #registerationForm="ngForm" (ngSubmit)= "onSubmit(registerationForm)">
+          <div class="row">
+            <div class="col-lg-6">
+              <label>Email Id</label>
+              <input type='text' class="form-control" #emailId="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailId" placeholder='Email Id' ngModel required/>
+              <div *ngIf="emailId.errors && (emailId.invalid || emailId.touched)">
+                <small class="text-danger" *ngIf="emailId.errors.required &&emailId.touched">Email Id is Required</small>
+                <small class="text-danger" *ngIf="emailId.errors.pattern">Invalid Email Id</small>
+            </div>
+            </div>
+            <div class="col-lg-6">
+              <label>Full Name</label>
+              <input type='text' class="form-control" #fullName="ngModel" name="fullName" id="fullName" placeholder="Full Name" ngModel required/>
+              <div *ngIf="fullName.errors && (fullName.invalid || fullName.touched)">
+                <small class="text-danger" *ngIf="fullName.errors.required &&fullName.touched">User Name is Required</small>
+             </div>
+              </div>
+           </div>
+            <br/>
+            <div class="row">
+                  <div class="col-lg-6">
+                    <label htmlFor="gender">Gender</label>
+                    <input type='text' class="form-control" #gender="ngModel" name="gender" id="gender" placeholder="Gender" patter="[a-zA-Z]{1,}" ngModel required/>
+                    <div *ngIf="gender.errors && (gender.invalid || gender.touched)">
+                      <small class="text-danger" *ngIf="gender.errors.required &&gender.touched">Email is Required</small>
+                      <small class="text-danger" *ngIf="gender.errors.pattern">Invalid Gender</small>
+                  </div> 
+                  </div>
+                  <div class="col-lg-6">
+                    <label>Contact Number</label>
+                    <input type='number' #contactNumber="ngModel" id="contactNumber" name="contactNumber" placeholder='Contact' pattern="[0-9]{10}" class="form-control" ngModel required/>
+                    <div *ngIf="contactNumber.errors && (contactNumber.invalid || contactNumber.touched)">
+                      <small class="text-danger" *ngIf="contactNumber.errors.required &&contactNumber.touched">Contact Number is Required</small>
+                      <small class="text-danger" *ngIf="contactNumber.errors.pattern">Invalid contact Number</small>
+                  </div>  
+                   </div>            
+                 </div>
+                 <br/>
+                 <div class="row">
+                  <div class="col-lg-6">
+                    <label>Date Of Birth</label>
+                    <input type='date' name="dateOfBirth" id="dateOfBirth" class="form-control" #dateOfBirth="ngModel" ngModel required/>
+                    <div *ngIf="dateOfBirth.errors && (dateOfBirth.invalid || dateOfBirth.touched)">
+                      <small class="text-danger" *ngIf="dateOfBirth.errors.required &&dateOfBirth.touched">Please Select Date Of Birth</small>
+                    </div>
+                    <br/>
+                    </div>
+                  <div class="col-lg-6">
+                       <label>Password</label>
+                      <input type='password' #password="ngModel" pattern=".{8,}" id="password" name="password" placeholder="Password" class="form-control" required ngModel/>
+                      <div *ngIf="password.errors && (password.invalid || password.touched)">
+                        <small class="text-danger" *ngIf="password.errors.required &&password.touched">Password Cannot be Emty</small>
+                        <small class="text-danger" *ngIf="password.errors.pattern">Password should be of minimum 8 Characters</small>
+                    </div> 
+                      <br/>
+                    </div>
+                  
+                  
+                </div>
+                <br/>
+                         
+            <div class='new-reg__actions'>
+              <div *ngIf="emailId.valid && fullName.valid && gender.valid && contactNumber.valid && password.valid && dateOfBirth.valid; then thenBlock else elseBlock"></div> 
+              <ng-template #thenBlock><button type="submit" style="color: white; width:100px;" value="Register" class="btn btn-success">Register</button>
+                                      <button routerLink="" class="btn btn-danger">Cancel</button></ng-template>
+              <ng-template #elseBlock><input type="button" style="color: white; width:100px; border-radius: 9px;" class="btn btn-success" onClick="getElementById('demo').innerHTML='Make Sure All Fields are Filled Properly'" value="Register">
+                &nbsp;&nbsp;&nbsp;&nbsp;<button routerLink="" class="btn btn-danger">Cancel</button><br><small id="demo" class="text-danger"></small></ng-template>
+               
+            </div>
+          </form>    
+        
+  </div>
+  </body>
+        

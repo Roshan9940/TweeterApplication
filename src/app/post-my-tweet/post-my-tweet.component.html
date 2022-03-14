@@ -1,0 +1,53 @@
+<div className="main-div"
+  style="background-image: url('https://cdn.cms-twdigitalassets.com/content/dam/help-twitter/logos/htc-summary-card.jpg.twimg.768.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;position: relative;min-height: 608px;">
+  <app-navigation-bar [Name]="tabLabel"></app-navigation-bar>
+  <form style="margin-left: 80px;margin-right: 80px;margin-top: 20px; margin-bottom: 30px; " #postTweetForm="ngForm"
+    (ngSubmit)="onSubmit(postTweetForm)">
+    <div class="row" style="background-color: #30a2f1;">
+      <div class="col-lg-12">
+        <h1 style="text-align: center;color: white; font-weight: 300;">Enter Your Tweet: </h1>
+      </div>
+    </div>
+    <div class="row" style="background-color: #30a2f1;">
+      <div class="col-6">
+        <div class="form-group">
+          <input  type="text" placeholder="Enter Tweet Here" #tweet="ngModel" required pattern="[a-zA-Z#_]{1,30}" [class.is-invalid]="tweet.invalid && tweet.touched" class="form-control"  name="tweet" ngModel/>
+          <div *ngIf="tweet.errors && (tweet.invalid || tweet.touched)">
+              <small class="text-danger" *ngIf="tweet.errors.required &&tweet.touched">Tweet is Required</small>
+              <small class="text-danger" *ngIf="tweet.errors.pattern">Tweet should be less than 30 Character</small>
+          </div>
+      </div>
+      </div>
+      <button type="submit" style="color: white; width:170px; height: 35px;" value="Tweet" class="btn btn-success" [disabled]="!tweet.valid">Tweet</button>
+                
+      
+      <br />
+
+    </div>
+
+  </form>
+  <div class="container" style="background-color: #30a2f1;">
+    <h1 style="text-align: center;color: white;">View All Tweets</h1>
+    <div class="row">
+      <div *ngIf="myTweets.length!=0; else elseBlock">
+        <div *ngFor="let tweet of myTweets">
+          <mat-card style="background-color: #6c757d;">
+            <h1>{{tweet.Tweet}}</h1>
+            <button class="btn btn-success" (click)="onEdit(tweet.TweetId)" style="width: 80px;">Edit</button>
+            <button class="btn btn-warning" (click)="onReplies(tweet.TweetId)"
+              style="margin-left: 30px;width: 80px;">Replies</button>
+            <button class="btn btn-danger" (click)="onDelete(tweet.TweetId)"
+              style="margin-left: 30px; width: 80px;">Delete</button>
+            <button class="btn btn-primary"  style="margin-left: 30px; width: 100px;"><i class="fa fa-thumbs-up"></i> Likes {{tweet.TweetLikes}}</button>
+
+          </mat-card>
+          <br><br>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <h3 style="text-align: center;" class="text-danger">--No Tweets Yet To Display--</h3>
+      </ng-template>
+    </div>
+  </div>
+  <br><br>
+</div>

@@ -1,0 +1,15 @@
+<br>
+<form style="margin-left: 120px;" #editTweetForm="ngForm" (ngSubmit)="onSubmit(editTweetForm)">
+
+    <div class="row">
+        <br>
+        <input style="width: 350px;" class="form-control" #reply="ngModel" pattern="['']{1,}" name="reply" id="reply" ngModel />
+    </div>
+
+    <br>
+    <div class="row">
+        <button type="submit" style="margin-left: 75px; width: 60px;" [disabled]="reply.valid" class="btn btn-success">Reply</button>
+        <button style="margin-left: 60px; width: 70px;" class="btn btn-danger" (click)="onCancel()"> Cancel </button>
+    </div>
+</form>
+<br>
