@@ -18,7 +18,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
   onSubmit(forgotPasswordForm:NgForm){
    console.log(forgotPasswordForm.value);
-   this.http.post('http://localhost:8255/api/ForgotPassword',forgotPasswordForm.value)
+   this.http.post('https://tweeterapi918664.azurewebsites.net/api/ForgotPassword',forgotPasswordForm.value)
    .subscribe((response:any)=>{
     sessionStorage.setItem('emailId',response[0].EmailId);
     console.log(response);

@@ -26,7 +26,7 @@ export class PostMyTweetComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    this.http.get<any>('http://localhost:8255/api/Tweets/MyTweets?UserId=' + this.userId)
+    this.http.get<any>('https://tweeterapi918664.azurewebsites.net/api/Tweets/MyTweets?UserId=' + this.userId)
       .subscribe(
         response=>{
           for(var val in response)
@@ -47,7 +47,7 @@ export class PostMyTweetComponent implements OnInit {
       UserName: this.userName, Reply: [""], TweetLikes: 0,  ReplierUserName: [""]
     }
 
-    this.http.post('http://localhost:8255/api/Tweets/PostMyTweet', data)
+    this.http.post('https://tweeterapi918664.azurewebsites.net/api/Tweets/PostMyTweet', data)
       .subscribe((response: any) => {
         console.log(response);
       });

@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     let data: { EmailId: string, UserName: string, Gender: string, Password: string, MobileNo: string, ProfilePicture: string, Bio: string, DateOfBirth?: string };
     data = { EmailId: registerationForm.value.emailId, UserName: registerationForm.value.fullName, Gender: registerationForm.value.gender, Password: registerationForm.value.password, ProfilePicture: this.profilePic, Bio: this.bio, MobileNo: registerationForm.value.contactNumber, DateOfBirth: registerationForm.value.dateOfBirth };
     console.log(data);
-    this.http.post('http://localhost:8255/api/NewUserRegisteration', data)
+    this.http.post('https://tweeterapi918664.azurewebsites.net/api/NewUserRegisteration', data)
       .subscribe((response: any) => {
         console.log(response);
 

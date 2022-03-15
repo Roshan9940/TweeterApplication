@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     let data: { EmailId: string, Password: string };
     data = { EmailId: this.emailId, Password: this.password };
 
-    this.http.post('http://localhost:8255/api/Login', loginForm.value)
+    this.http.post('https://tweeterapi918664.azurewebsites.net/api/Login', loginForm.value)
       .subscribe((response: any) => {
         console.log(response.status)
         sessionStorage.setItem('token', response.token);

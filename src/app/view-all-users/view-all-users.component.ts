@@ -11,7 +11,7 @@ export class ViewAllUsersComponent implements OnInit {
   allUsers:any=[];
 
   constructor( private http: HttpClient) { 
-    this.http.get<any>('http://localhost:8255/api/NewUserRegisteration/GetUserDetails')
+    this.http.get<any>('https://tweeterapi918664.azurewebsites.net/api/NewUserRegisteration/GetUserDetails')
       .subscribe(
         response=>{
           for(var val in response)

@@ -28,7 +28,7 @@ export class EditDetailsComponent implements OnInit {
 
   constructor(private http:HttpClient,private router:Router,private dialogRef:MatDialog) {
     console.log(this.user);
-    this.http.get('http://localhost:8255/api/NewUserRegisteration/GetUserDetailsByUserId?userId='+this.userId)
+    this.http.get('https://tweeterapi918664.azurewebsites.net/api/NewUserRegisteration/GetUserDetailsByUserId?userId='+this.userId)
     .subscribe((response:any)=>{
       sessionStorage.setItem('password',response[0].Password);
         sessionStorage.setItem('mobileNo',response[0].MobileNo);
@@ -69,7 +69,7 @@ export class EditDetailsComponent implements OnInit {
       ProfilePicture:any,Bio:any,DateOfBirth:any,UserId:any};
     data = {EmailId:registerationForm.value.emailId,UserName:registerationForm.value.fullName,Gender:registerationForm.value.gender,Password:registerationForm.value.password,
       UserId:this.userId,ProfilePicture:this.profilePic,Bio:registerationForm.value.bio,MobileNo:registerationForm.value.contactNumber,DateOfBirth:this.dateOfBirth};
-    this.http.put('http://localhost:8255/api/NewUserRegisteration/UpdateDetails',data)
+    this.http.put('https://tweeterapi918664.azurewebsites.net/api/NewUserRegisteration/UpdateDetails',data)
     .subscribe((response:any)=>{
       console.log(response);
     });
@@ -109,15 +109,15 @@ export class EditDetailsComponent implements OnInit {
   }
   onSave(){
     this.newImage.subscribe((d:any)=>{
-      let data : {EmailId:string,UserName:string,Gender:string,Password:string,MobileNo:string,
-        ProfilePicture:any,Bio:any,DateOfBirth:any,UserId:any};
-      data = {EmailId:this.emailId,UserName:this.userName,Gender:this.gender,Password:this.password,
-        UserId:this.userId,ProfilePicture:d,Bio:this.bio,MobileNo:this.mobileNo,DateOfBirth:this.dateOfBirth};
-      this.http.put('http://localhost:8255/api/NewUserRegisteration/UpdateDetails',data)
+      let data : {EmailId:string,ProfilePic:any};
+      data = {EmailId:this.emailId,ProfilePic:d};
+      this.http.put('http://localhost:8255/api/NewUserRegisteration/UpdateProfilePic',data)
       .subscribe((response:any)=>{
         console.log(response);
       });
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     });
   }
 }

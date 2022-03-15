@@ -13,7 +13,7 @@ export class ViewAllRepliesComponent implements OnInit {
   Tweet:any=[];
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private http:HttpClient,private router:Router,private dialogRef:MatDialogRef<null,null>) { 
     this.tweetId=data.id;
-    this.http.get<any>('http://localhost:8255/api/Tweets/GetTweetByTweetId?tweetId='+this.tweetId)
+    this.http.get<any>('https://tweeterapi918664.azurewebsites.net/api/Tweets/GetTweetByTweetId?tweetId='+this.tweetId)
       .subscribe(
         (response:any)=>{
           for(var val in response)

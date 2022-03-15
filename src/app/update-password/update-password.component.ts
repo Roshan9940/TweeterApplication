@@ -18,7 +18,7 @@ export class UpdatePasswordComponent implements OnInit {
   }
   onSubmit(updatePasswordForm:NgForm){
      console.log(updatePasswordForm.value)
-     this.http.put('http://localhost:8255/api/ForgotPassword/UpdatePassword?password='+updatePasswordForm.value.password+'&emailId='+this.emailId,null)
+     this.http.put('https://tweeterapi918664.azurewebsites.net/api/ForgotPassword/UpdatePassword?password='+updatePasswordForm.value.password+'&emailId='+this.emailId,null)
      .subscribe((response:any)=>{
       sessionStorage.clear();
       this.dialogRef.open(PopUpBoxComponent, {

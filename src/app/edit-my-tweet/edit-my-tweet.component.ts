@@ -19,7 +19,7 @@ export class EditMyTweetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:8255/api/Tweets/MyTweets?UserId=' + this.userId)
+    this.http.get<any>('https://tweeterapi918664.azurewebsites.net/api/Tweets/MyTweets?UserId=' + this.userId)
       .subscribe(
         response=>{
           for(var val in response)
@@ -42,7 +42,9 @@ export class EditMyTweetComponent implements OnInit {
     },err => {
       console.log("Something Went Wrong Please Try Again Later");
     });
-    window.location.reload();
+    setTimeout(() => {
+          window.location.reload();
+        }, 2000);
      this.dialogRef.close()
       
   }

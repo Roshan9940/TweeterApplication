@@ -17,7 +17,7 @@ export class ViewAllTweetsComponent implements OnInit {
   userName=sessionStorage.getItem('userName');
 
   constructor(private http: HttpClient,private router: Router, private dialogRef:MatDialog) {
-    this.http.get<any>('http://localhost:8255/api/Tweets/ViewAllTweet')
+    this.http.get<any>('https://tweeterapi918664.azurewebsites.net/api/Tweets/ViewAllTweet')
       .subscribe(
         response=>{
           for(var val in response)
@@ -47,7 +47,10 @@ export class ViewAllTweetsComponent implements OnInit {
       .subscribe(
         
         response=>console.log(response));
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+       
     }
 
 }

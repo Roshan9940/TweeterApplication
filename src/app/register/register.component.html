@@ -43,7 +43,7 @@
                  <div class="row">
                   <div class="col-lg-6">
                     <label>Date Of Birth</label>
-                    <input type='date' name="dateOfBirth" id="dateOfBirth" class="form-control" #dateOfBirth="ngModel" ngModel required/>
+                    <input type='date' name="dateOfBirth" max="2017-03-15" id="dateOfBirth" class="form-control" #dateOfBirth="ngModel" ngModel required/>
                     <div *ngIf="dateOfBirth.errors && (dateOfBirth.invalid || dateOfBirth.touched)">
                       <small class="text-danger" *ngIf="dateOfBirth.errors.required &&dateOfBirth.touched">Please Select Date Of Birth</small>
                     </div>
